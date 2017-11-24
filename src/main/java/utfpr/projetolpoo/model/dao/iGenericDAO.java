@@ -13,10 +13,11 @@ import java.util.List;
  */
 public interface iGenericDAO<E> {
     
-    boolean insert(E object);
-    boolean update(E object);
-    boolean remove(E object);
+    Boolean insert(E object);
+    Boolean update(E object);
+    Boolean remove(E object);
     List<E> listAll(E object);
-    List<E> listAll(final long first,final long max);
-    E findOne(String name, long id, Class classe);
+    List<E> listAll(E object, final Long first,final Long max);
+    List<E> refresh(E object, String string);
+    E findOne(Long id, E object);
 }
