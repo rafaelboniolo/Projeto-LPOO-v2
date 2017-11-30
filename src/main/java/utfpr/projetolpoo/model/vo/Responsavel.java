@@ -5,13 +5,11 @@
  */
 package utfpr.projetolpoo.model.vo;
 
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,7 +24,7 @@ public class Responsavel extends Pessoa{
     private String tel;
     private String cel;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     
     public Responsavel() {

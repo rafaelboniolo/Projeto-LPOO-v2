@@ -25,7 +25,7 @@ public class Funcionario extends Pessoa{
     private int pis;
     private String cargo;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
     public Funcionario() {

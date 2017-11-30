@@ -23,16 +23,23 @@ public class Enfermeiro extends Funcionario{
     @GeneratedValue
     private long codEnfermeiro;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     
     @OneToMany(mappedBy = "enfermeiro")
-    List<Paciente> pacientes;
+    private List<Paciente> pacientes;
 
     public Enfermeiro() {
         endereco = new Endereco();
     }
-    
+
+    public List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(List<Paciente> pacientes) {
+        this.pacientes = pacientes;
+    }
     
     
 }

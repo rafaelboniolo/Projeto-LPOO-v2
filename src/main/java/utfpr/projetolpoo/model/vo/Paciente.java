@@ -23,7 +23,7 @@ public class Paciente extends Pessoa{
     
     private String laudo;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     
     @ManyToOne
