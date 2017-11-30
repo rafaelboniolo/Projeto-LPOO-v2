@@ -50,7 +50,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
     }
 
     @Override
-    public List<E> listAll(E object) {
+    public List<E> listAll(Class object) {
         String jpql = " SELECT e FROM " + object.getTypeName() + " e";
         Query query = manager.createQuery(jpql);
         List<E> objects = query.getResultList();
@@ -58,7 +58,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
     }
 
     @Override
-    public List<E> listAll(E object,Long first, Long max) {
+    public List<E> listAll(Class object,Long first, Long max) {
         //SELECT campos FROM tabela WHERE campo BETWEEN inicio_intervalo AND fim_intervalo;
         String jpql = " SELECT e FROM " + object.getTypeName() + " e WHERE e.id BETWEEN "+ first +" AND " + max;
         Query query = manager.createQuery(jpql);
@@ -67,7 +67,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
     }
 
     @Override
-    public E findOne(Long id, E object) {
+    public E findOne(Long id, Class object) {
         String jpql = " SELECT e FROM " + object.getTypeName() + " e WHERE e.id = " + id;
         Query query = manager.createQuery (jpql);
         Object obj = query.getSingleResult();
@@ -75,7 +75,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
     }
 
     @Override
-    public List<E> refresh(E object, String string) {
+    public List<E> refresh(Class object, String string) {
         //"SELECT * FROM tb_cliente c WHERE c.CLI_CPF LIKE ? OR c.CLI_NOME LIKE ?
         String jpql = "SELECT e FROM " + object.getTypeName() + " e WHERE e.nome LIKE %" + string +" OR e.cpf LIKE %" + string;
         Query query = manager.createQuery(jpql);

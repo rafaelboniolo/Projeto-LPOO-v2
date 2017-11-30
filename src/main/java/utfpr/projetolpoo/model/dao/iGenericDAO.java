@@ -16,8 +16,8 @@ public interface iGenericDAO<E> {
     Boolean insert(E object);
     Boolean update(E object);
     Boolean remove(E object);
-    List<E> listAll(E object);
-    List<E> listAll(E object, final Long first,final Long max);
-    List<E> refresh(E object, String string);
-    E findOne(Long id, E object);
+    List<E> listAll(Class object);
+    List<E> listAll(Class object, final Long first,final Long max);
+    List<E> refresh(Class object, String string);
+    E findOne(Long id, Class object);
 }
