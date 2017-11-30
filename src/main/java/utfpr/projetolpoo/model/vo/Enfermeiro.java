@@ -8,8 +8,6 @@ package utfpr.projetolpoo.model.vo;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -18,11 +16,7 @@ import javax.persistence.OneToMany;
  * @author ALUNO
  */
 @Entity
-public class Enfermeiro extends Funcionario{
-    @Id
-    @GeneratedValue
-    private long codEnfermeiro;
-    
+public class Enfermeiro extends Funcionario{    
     @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     
@@ -33,6 +27,14 @@ public class Enfermeiro extends Funcionario{
         endereco = new Endereco();
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    
     public List<Paciente> getPacientes() {
         return pacientes;
     }
@@ -40,6 +42,4 @@ public class Enfermeiro extends Funcionario{
     public void setPacientes(List<Paciente> pacientes) {
         this.pacientes = pacientes;
     }
-    
-    
 }

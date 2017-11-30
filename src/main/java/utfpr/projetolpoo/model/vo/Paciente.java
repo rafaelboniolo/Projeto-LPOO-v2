@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

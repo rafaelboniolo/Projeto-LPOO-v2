@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utfpr.projetolpoo.model.vo;
+package utfpr.projetolpoo.model.vo.abstrato;
 
 import java.util.Date;
 
@@ -13,6 +13,9 @@ import java.util.Date;
  */
 public abstract class Pessoa {
     private String nome;
+    private int idade;
+    private String tel;
+    private String cel;
     private String cpf;
     private String rg;
     private Date nascimento;
@@ -48,6 +51,28 @@ public abstract class Pessoa {
     public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
-    
-    
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getCel() {
+        return cel;
+    }
+
+    public void setCel(String cel) {
+        this.cel = cel;
+    }
 }
