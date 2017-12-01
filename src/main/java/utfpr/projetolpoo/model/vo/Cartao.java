@@ -5,15 +5,17 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import utfpr.projetolpoo.model.vo.interfaces.iPagamento;
+
 /**
  *
- * @author NataN
+ * @author ALUNO
  */
-public class Cartao extends Avista, APrazo{
-    
-    
-    
-    boolean gerar(DadosBancarios dado, double valor){
-        return false;
+public class Cartao implements iPagamento{
+
+    @Override
+    public void gerarValor() {
+        
     }
+    
 }

@@ -11,11 +11,18 @@ import utfpr.projetolpoo.model.vo.interfaces.iPagamento;
  *
  * @author NataN
  */
-public class Aprazo implements iPagamento{
+public class Aprazo{
 
-    @Override
-    public void gerarValor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    iPagamento pagamento;
+
+    public Aprazo(String tipo) {
+        if(tipo.equals("Dinheiro")){
+            pagamento = new Dinheiro();
+        }else if(tipo.equals("Cartao")){
+            pagamento = new Cartao();
+        }else if(tipo.equals("Boleto")){
+            pagamento = new Boleto();
+        }
     }
 
     

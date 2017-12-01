@@ -5,6 +5,9 @@
  */
 package utfpr.projetolpoo;
 
+import javax.persistence.EntityManager;
+import utfpr.projetolpoo.model.dao.HibernateConnection;
+
 /**
  *
  * @author ALUNO
@@ -16,7 +19,7 @@ public class Principal {
      */
     public static void main(String[] args) {
         
-        
+        EntityManager manager = HibernateConnection.getInstance();
         
     }
     
