@@ -7,9 +7,8 @@ package utfpr.projetolpoo.model.vo;
 
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 
@@ -19,20 +18,18 @@ import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
  */
 @Entity
 public class Fornecedor extends Pessoa{
-    @Id
-    @GeneratedValue
-    private long codFornecedor;
     
     @ManyToOne
     private Estoque estoque;
     
-    @OneToOne
+    @OneToOne(mappedBy = "fornecedor")
     private DadosBancarios dadosBancarios;
     
+    @OneToMany(mappedBy = "fornecedor")
     private List<Produto> produtos;
 
     public Fornecedor() {
-        dadosBancarios = new DadosBancarios();
+        //dadosBancarios = new DadosBancarios();
     }
     
     public List<Produto> getProdutos() {

@@ -6,9 +6,7 @@
 package utfpr.projetolpoo.model.vo;
 
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -16,23 +14,13 @@ import javax.persistence.OneToMany;
  * @author ALUNO
  */
 @Entity
-public class Enfermeiro extends Funcionario{    
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Endereco endereco;
+public class Enfermeiro extends Funcionario{
     
     @OneToMany(mappedBy = "enfermeiro")
     private List<Paciente> pacientes;
 
     public Enfermeiro() {
-        endereco = new Endereco();
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+        
     }
     
     public List<Paciente> getPacientes() {

@@ -6,10 +6,7 @@
 package utfpr.projetolpoo.model.vo;
 
 import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 /**
@@ -18,15 +15,9 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Funcionario extends Pessoa{
-    @Id
-    @GeneratedValue
-    private long codFuncionario;
     
     private double salario;
     private int pis;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Endereco endereco;
     
     @ManyToOne
     private Gerente gerente;
@@ -35,9 +26,9 @@ public class Funcionario extends Pessoa{
     private Cargo cargo;
     
     public Funcionario() {
-        endereco = new Endereco();
-        gerente = new Gerente();
-        cargo = new Cargo();
+        //endereco = new Endereco();
+        //gerente = new Gerente();
+        //cargo = new Cargo();
     }
     
     public double getSalario() {
@@ -54,14 +45,6 @@ public class Funcionario extends Pessoa{
 
     public void setPis(int pis) {
         this.pis = pis;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     public Cargo getCargo() {

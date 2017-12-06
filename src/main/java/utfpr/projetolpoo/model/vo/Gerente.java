@@ -8,6 +8,8 @@ package utfpr.projetolpoo.model.vo;
 import utfpr.projetolpoo.model.vo.interfaces.iPagamento;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 /**
  *
@@ -16,22 +18,21 @@ import javax.persistence.OneToMany;
 @Entity
 public class Gerente extends Funcionario{
     
-    @OneToMany
-    private Funcionario funcionario;
-    
+    @Transient
     private iPagamento pagamento;
 
     public Gerente() {
-        funcionario = new Enfermeiro();
         //pagamento = new ;
     }
-    
-    public Funcionario getFuncionario() {
-        return funcionario;
+
+    public iPagamento getPagamento() {
+        return pagamento;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
+    public void setPagamento(iPagamento pagamento) {
+        this.pagamento = pagamento;
     }
+    
+    
     
 }

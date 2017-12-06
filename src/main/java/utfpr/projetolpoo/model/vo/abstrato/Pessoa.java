@@ -6,12 +6,23 @@
 package utfpr.projetolpoo.model.vo.abstrato;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import utfpr.projetolpoo.model.vo.Endereco;
 
 /**
  *
  * @author ALUNO
  */
+@MappedSuperclass
 public abstract class Pessoa {
+    @Id
+    @GeneratedValue
+    private long codPessoa;
+    
     private String nome;
     private int idade;
     private String tel;
@@ -19,6 +30,13 @@ public abstract class Pessoa {
     private String cpf;
     private String rg;
     private Date nascimento;
+    
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    private Endereco endereco;
+
+    public Pessoa() {
+        endereco = new Endereco();
+    }
 
     public String getNome() {
         return nome;
@@ -74,5 +92,13 @@ public abstract class Pessoa {
 
     public void setCel(String cel) {
         this.cel = cel;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }

@@ -32,8 +32,8 @@ public class DadosBancarios {
     private Funcionario funcionario;
     
     public DadosBancarios() {
-        fornecedor = new Fornecedor();
-        funcionario = new Funcionario();
+        //fornecedor = new Fornecedor();
+        //funcionario = new Funcionario();
     }
 
     public int getConta() {

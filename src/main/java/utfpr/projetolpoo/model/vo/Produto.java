@@ -26,6 +26,9 @@ public class Produto {
     
     @ManyToOne
     private Estoque estoque;
+    
+    @ManyToOne
+    private Fornecedor fornecedor;
 
     public Produto() {
         estoque = new Estoque();
@@ -66,6 +69,12 @@ public class Produto {
     public void setEstoque(Estoque estoque) {
         this.estoque = estoque;
     }
-    
-    
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
+    }   
 }

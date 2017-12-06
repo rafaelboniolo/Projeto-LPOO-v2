@@ -21,14 +21,14 @@ public class Estoque {
     @GeneratedValue
     private long codEstoque;
     
-    @OneToMany
+    @OneToMany(mappedBy = "estoque")
     private List<Produto> produtos;
             
-    @OneToMany
-    private Fornecedor fornecedor;
+    @OneToMany(mappedBy = "estoque")
+    private List<Fornecedor> fornecedores;
 
     public Estoque() {
-        fornecedor = new Fornecedor();
+        //fornecedores = new Fornecedor();
     }
             
     boolean adicionar(Produto p){
@@ -47,11 +47,13 @@ public class Estoque {
         this.produtos = produtos;
     }
 
-    public Fornecedor getFornecedor() {
-        return fornecedor;
+    public List<Fornecedor> getFornecedores() {
+        return fornecedores;
     }
 
-    public void setFornecedor(Fornecedor fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setFornecedores(List<Fornecedor> fornecedores) {
+        this.fornecedores = fornecedores;
     }
+
+    
 }
