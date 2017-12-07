@@ -41,6 +41,8 @@ public class Principal {
         
         enfermeiroEnf.gravar(enf);
         
+        sistema.end();
+        
     }
     
 }

@@ -7,8 +7,12 @@ package utfpr.projetolpoo.model.vo.abstrato;
 
 import java.util.Date;
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import utfpr.projetolpoo.model.vo.Endereco;
@@ -17,10 +21,12 @@ import utfpr.projetolpoo.model.vo.Endereco;
  *
  * @author ALUNO
  */
-@MappedSuperclass
+
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Entity
 public abstract class Pessoa {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.TABLE)
     private long codPessoa;
     
     private String nome;

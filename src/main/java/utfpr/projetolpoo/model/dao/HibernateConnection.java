@@ -42,4 +42,9 @@ public class HibernateConnection {
             return manager;
     }
     
+    public static void close(){
+        manager.close();
+        factory.close();
+        
+    }
 }

@@ -15,6 +15,7 @@ import javax.persistence.Transient;
  *
  * @author NataN
  */
+
 @Entity
 public class Gerente extends Funcionario{
     
