@@ -16,12 +16,14 @@ import org.hibernate.HibernateException;
  */
 public class HibernateConnection {
     
-    private static EntityManagerFactory factory;
-    private volatile static EntityManager  manager;
+    private static EntityManagerFactory factory;    //Gera as Entidades
+    private volatile static EntityManager  manager; //Manipula as Entidades
     
     //public static Connection connection = null; // manages connection
  
-    private HibernateConnection() { }
+    private HibernateConnection(){
+        
+    }
 
     public static EntityManager getInstance() {
             if (manager == null) {
@@ -43,8 +45,7 @@ public class HibernateConnection {
     }
     
     public static void close(){
-        manager.close();
+        //manager.close();
         factory.close();
-        
     }
 }

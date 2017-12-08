@@ -14,7 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import utfpr.projetolpoo.model.vo.Endereco;
 
 /**
@@ -29,14 +30,29 @@ public abstract class Pessoa {
     @GeneratedValue(strategy=GenerationType.TABLE)
     private long codPessoa;
     
+    //@Column(nullable=false)
     private String nome;
+    
+    //@Column(nullable=false, length = 3)
     private int idade;
+    
+    //@Column(nullable=false, unique=true, length = 13)
     private String tel;
+    
+    //@Column(nullable=false, unique=true, length = 14)
     private String cel;
+    
+    //@Column(nullable=false, unique=true, length = 14)
     private String cpf;
+    
+    //@Column(nullable=false, unique=true, length = 12)
     private String rg;
+    
+    //@Column(nullable=false, length = 10)
+    //@Temporal(TemporalType.DATE)
     private Date nascimento;
     
+    //@Column(nullable = false)
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Endereco endereco;
 

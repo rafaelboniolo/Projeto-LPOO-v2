@@ -6,6 +6,7 @@
 package utfpr.projetolpoo.model.vo;
 
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -18,13 +19,15 @@ import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
  */
 @Entity
 public class Fornecedor extends Pessoa{
-    
+    //@Column(nullable=false, unique=true)
     @ManyToOne
     private Estoque estoque;
     
+    //@Column(nullable=false, unique=true)
     @OneToOne(mappedBy = "fornecedor")
     private DadosBancarios dadosBancarios;
     
+    //@Column(nullable=false, unique=true)
     @OneToMany(mappedBy = "fornecedor")
     private List<Produto> produtos;
 

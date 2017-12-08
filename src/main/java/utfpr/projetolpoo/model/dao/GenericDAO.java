@@ -25,7 +25,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
     @Override
     public Boolean insert(E object) {
         manager.getTransaction().begin();
-        manager.persist(object);
+            manager.persist(object);
         manager.getTransaction().commit();
         System.out.println(object.getClass().getSimpleName() + " salvo som sucesso!");
         return true;
@@ -34,7 +34,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
     @Override
     public Boolean update(E object) {
         manager.getTransaction().begin();
-        manager.persist(object);
+            manager.persist(object);
         manager.getTransaction().commit();
         System.out.println(object.getClass().getSimpleName() + " atualizado som sucesso!");
         return true;
@@ -43,7 +43,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
     @Override
     public Boolean remove(E object) {
         manager.getTransaction().begin();
-        manager.remove(object);
+            manager.remove(object);
         manager.getTransaction().commit();
         System.out.println(object.getClass().getSimpleName() + " excluído som sucesso!");
         return true;

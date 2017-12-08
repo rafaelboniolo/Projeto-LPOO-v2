@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import javax.persistence.Column;
 import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -15,12 +16,14 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Paciente extends Pessoa{
-    
+    //@Column(nullable=false)
     private String laudo;
     
+    //@Column(nullable=false)
     @ManyToOne
     private Responsavel responsavel;
     
+    //@Column(nullable=false, unique=true)
     @ManyToOne
     private Enfermeiro enfermeiro;
 

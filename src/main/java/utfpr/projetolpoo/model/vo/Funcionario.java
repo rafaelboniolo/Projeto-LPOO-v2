@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import javax.persistence.Column;
 import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -18,13 +19,17 @@ import javax.persistence.ManyToOne;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Funcionario extends Pessoa{
-    
+    //@Column(nullable=false, unique=true)
     private double salario;
+    
+    //@Column(nullable=false, unique=true)
     private int pis;
     
+    //@Column(nullable=false, unique=true)
     @ManyToOne
     private Gerente gerente;
     
+    //@Column(nullable=false, unique=true)
     @ManyToOne
     private Cargo cargo;
     

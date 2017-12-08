@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,9 +21,19 @@ public class DadosBancarios {
     @GeneratedValue
     private long codDadosBancarios;
     
+    //@Column(nullable=false, unique=true, length = 9)
     private int conta;
-    private int agencia;
+    
+    //@Column(nullable=false, unique=true, length = 4)
+    private int agenciaSemDV;
+    
+    //@Column(nullable=false, length = 1)
+    private int dv;
+    
+    //@Column(nullable=false, unique=true)
     private String beneficiario;
+    
+    //@Column(nullable=false)
     private int op;
 
     @OneToOne
@@ -42,14 +53,6 @@ public class DadosBancarios {
 
     public void setConta(int conta) {
         this.conta = conta;
-    }
-
-    public int getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
     }
 
     public String getBeneficiario() {
@@ -82,5 +85,21 @@ public class DadosBancarios {
 
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
+    }
+
+    public int getAgenciaSemDV() {
+        return agenciaSemDV;
+    }
+
+    public void setAgenciaSemDV(int agenciaSemDV) {
+        this.agenciaSemDV = agenciaSemDV;
+    }
+
+    public int getDv() {
+        return dv;
+    }
+
+    public void setDv(int dv) {
+        this.dv = dv;
     }
 }
