@@ -24,6 +24,7 @@ public class Produto {
     private long codigo;
     private String descricao;
     private double valor;
+    Double grande;
     
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Estoque estoque;

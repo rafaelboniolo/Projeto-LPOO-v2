@@ -21,16 +21,16 @@ public class EstoqueController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Estoque estoque) {
-        genericDao.insert(estoque);
+    public boolean gravar(Estoque estoque) {
+        return genericDao.insert(estoque);
     }
     
-    public void remover (Estoque estoque) {
-        genericDao.remove(estoque);
+    public boolean remover (Estoque estoque) {
+        return genericDao.remove(estoque);
     }
     
-    public void atualizar(Estoque estoque){
-        genericDao.update(estoque);
+    public boolean atualizar(Estoque estoque){
+        return genericDao.update(estoque);
     }
     
     public List buscarTodos()
@@ -51,10 +51,4 @@ public class EstoqueController {
         
         return estoques;
     }
-    
-    /*public List listarConformeCampo(String string){
-        List<Estoque> estoques = genericDao.refresh(Estoque.class, string);
-        
-        return estoques;
-    }*/
 }

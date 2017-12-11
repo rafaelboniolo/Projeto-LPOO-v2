@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utfpr.projetolpoo.model.vo.abstrato;
+package utfpr.projetolpoo.model.vo;
 
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -14,8 +14,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import utfpr.projetolpoo.model.vo.Cargo;
+import utfpr.projetolpoo.model.vo.Cargo;
+import utfpr.projetolpoo.model.vo.Endereco;
 import utfpr.projetolpoo.model.vo.Endereco;
 import utfpr.projetolpoo.model.vo.Gerente;
+import utfpr.projetolpoo.model.vo.Gerente;
+import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
+import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 
 /**
  *
@@ -23,7 +28,7 @@ import utfpr.projetolpoo.model.vo.Gerente;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Funcionario extends Pessoa{
+public class Funcionario extends Pessoa{
     //@Column(nullable=false, unique=true)
     private double salario;
     

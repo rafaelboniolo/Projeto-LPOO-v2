@@ -52,9 +52,10 @@ public class ProdutoController {
         return produtos;
     }
     
-    public List listarConformeCampo(String atriNome, String atriCPF, String valorNome, String valorCPF){
-        List<Produto> produtos = genericDao.refreshDinamico(Produto.class, atriNome, atriCPF, valorNome, valorCPF);
+    public List listarConformeCampo(String atriNome, String atriCod, String valorNome, String valorCod){
+        List<Produto> produtos = genericDao.refreshDinamico(Produto.class, atriNome, atriCod, valorNome, valorCod);
         
         return produtos;
     }
+    
 }
