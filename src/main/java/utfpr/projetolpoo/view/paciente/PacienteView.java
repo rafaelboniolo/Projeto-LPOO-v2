@@ -7,9 +7,6 @@ package utfpr.projetolpoo.view.paciente;
 
 import utfpr.projetolpoo.view.paciente.BuscarPacienteView;
 import java.awt.Color;
-import utfpr.projetolpoo.Bean.BeanEndereco;
-import utfpr.projetolpoo.Bean.BeanPaciente;
-import utfpr.projetolpoo.Bean.BeanResponsavel;
 import utfpr.projetolpoo.view.responsavel.ResponsavelView;
 import javax.swing.JDesktopPane;
 import javax.swing.JFormattedTextField;

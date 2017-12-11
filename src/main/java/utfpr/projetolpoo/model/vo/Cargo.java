@@ -5,7 +5,9 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,6 +23,7 @@ public class Cargo {
     @GeneratedValue
     private int codCargo;
     
+    //@Column(nullable=false)
     private String descricaoCargo;
     
     @OneToMany(mappedBy = "cargo")

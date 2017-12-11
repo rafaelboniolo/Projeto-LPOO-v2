@@ -6,6 +6,7 @@
 package utfpr.projetolpoo.model.vo;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 import javax.persistence.Entity;
@@ -21,11 +22,11 @@ public class Paciente extends Pessoa{
     private String laudo;
     
     //@Column(nullable=false)
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Responsavel responsavel;
     
     //@Column(nullable=false, unique=true)
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Enfermeiro enfermeiro;
 
     public Paciente() {

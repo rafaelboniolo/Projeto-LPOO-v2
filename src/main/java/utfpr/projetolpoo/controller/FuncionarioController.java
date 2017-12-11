@@ -7,7 +7,7 @@ package utfpr.projetolpoo.controller;
 
 import java.util.List;
 import utfpr.projetolpoo.model.dao.GenericDAO;
-import utfpr.projetolpoo.model.vo.Funcionario;
+import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
 
 /**
  *

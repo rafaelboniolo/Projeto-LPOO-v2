@@ -19,4 +19,5 @@ public interface iGenericDAO<E> {
     List<E> listAll(Class object);
     List<E> listAll(Class object, final Long first,final Long max);
     E findOne(Long id, Class object);
+    List<E> refreshDinamico(Class object, String atriNome, String atriCPF, String valorNome, String valorCPF);
 }
