@@ -15,7 +15,7 @@ import javax.persistence.Query;
  */
 public class GenericDAO<E> implements iGenericDAO<E>{
 
-    EntityManager manager = HibernateConnection.getInstance();
+    EntityManager manager;
     
     public void commit()
     {
@@ -24,62 +24,77 @@ public class GenericDAO<E> implements iGenericDAO<E>{
 
     @Override
     public Boolean insert(E object) {
+        manager = HibernateConnection.getEntityManager();
         manager.getTransaction().begin();
             manager.persist(object);
         manager.getTransaction().commit();
         System.out.println(object.getClass().getSimpleName() + " salvo som sucesso!");
+        manager.close();
         return true;
     }
 
     @Override
     public Boolean update(E object) {
+        manager = HibernateConnection.getEntityManager();
         manager.getTransaction().begin();
             manager.persist(object);
         manager.getTransaction().commit();
         System.out.println(object.getClass().getSimpleName() + " atualizado som sucesso!");
+        manager.close();
         return true;
     }
 
     @Override
     public Boolean remove(E object) {
+        manager = HibernateConnection.getEntityManager();
         manager.getTransaction().begin();
             manager.remove(object);
         manager.getTransaction().commit();
         System.out.println(object.getClass().getSimpleName() + " excluído som sucesso!");
+        manager.close();
         return true;
     }
 
     @Override
     public List<E> listAll(Class object) {
+        manager = HibernateConnection.getEntityManager();
         String jpql = " SELECT e FROM " + object.getTypeName() + " e";
         Query query = manager.createQuery(jpql);
         List<E> objects = query.getResultList();
+        manager.close();
         return objects;
     }
 
     @Override
     public List<E> listAll(Class object,Long first, Long max) {
+        manager = HibernateConnection.getEntityManager();
         //SELECT campos FROM tabela WHERE campo BETWEEN inicio_intervalo AND fim_intervalo;
         String jpql = " SELECT e FROM " + object.getTypeName() + " e WHERE e.id BETWEEN "+ first +" AND " + max;
         Query query = manager.createQuery(jpql);
         List<E> objects = query.getResultList();
+        manager.close();
         return objects;
     }
 
     @Override
     public E findOne(Long id, Class object) {
-        String jpql = " SELECT e FROM " + object.getTypeName() + " e WHERE e.id = " + id;
-        Query query = manager.createQuery (jpql);
-        Object obj = query.getSingleResult();
-        return (E) obj;
+        manager = HibernateConnection.getEntityManager();
+        E obj = (E)manager.find(object , id);
+        manager.close();
+        return obj;
     }
 
-    @Override
-    public List<E> refresh(Class object, String string) {
-        //"SELECT * FROM tb_cliente c WHERE c.CLI_CPF LIKE ? OR c.CLI_NOME LIKE ?
-        String jpql = "SELECT e FROM " + object.getTypeName() + " e WHERE e.nome LIKE %" + string +" OR e.cpf LIKE %" + string;
+    //Não está no iGenericDAO
+    public List<E> refreshDinamico(Class object, String atriNome, String atriCPF, String valorNome, String valorCPF) {
+        manager = HibernateConnection.getEntityManager();
+        //"SELECT * FROM tb_cliente c WHERE c.CLI_CPF LIKE ? OR c.CLI_NOME LIKE ?        
+        String jpql = "SELECT e FROM " + object.getTypeName() + " WHERE " + atriNome + " LIKE :value OR"
+                + atriCPF + " LIKE :value2";
         Query query = manager.createQuery(jpql);
+        query.setParameter("value", "%" + valorNome + "%");
+        query.setParameter("value2", "%" + valorCPF + "%");
         List<E> objects = query.getResultList();
+        manager.close();
         return objects;
     }
     

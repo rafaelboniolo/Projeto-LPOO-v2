@@ -52,9 +52,9 @@ public class PacienteController {
         return pacientes;
     }
     
-    public List listarConformeCampo(String string){
+    /*public List listarConformeCampo(String string){
         List<Paciente> pacientes = genericDao.refresh(Paciente.class, string);
         
         return pacientes;
-    }
+    }*/
 }

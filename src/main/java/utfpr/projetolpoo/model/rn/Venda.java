@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utfpr.projetolpoo.model.vo;
+package utfpr.projetolpoo.model.rn;
 
 /**
  *
  * @author NataN
  */
-public class Vendas {
-    //BUNDINHA DE NENEM
+public abstract class Venda {
+    //FALTA
 }

@@ -57,9 +57,19 @@ public abstract class Pessoa {
     private Endereco endereco;
 
     public Pessoa() {
-        endereco = new Endereco();
     }
-
+    
+    public Pessoa(String nome, int idade, String tel, String cel, String cpf, String rg, Date nascimento, Endereco endereco) {
+        this.nome = nome;
+        this.idade = idade;
+        this.tel = tel;
+        this.cel = cel;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.nascimento = nascimento;
+        this.endereco = endereco;
+    }
+    
     public String getNome() {
         return nome;
     }

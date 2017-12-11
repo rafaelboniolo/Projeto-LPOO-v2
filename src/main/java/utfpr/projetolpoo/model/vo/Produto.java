@@ -31,8 +31,15 @@ public class Produto {
     private Fornecedor fornecedor;
 
     public Produto() {
-        estoque = new Estoque();
-    }    
+    }
+    
+    public Produto(long codigo, String descricao, double valor, Estoque estoque, Fornecedor fornecedor) {
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.valor = valor;
+        this.estoque = estoque;
+        this.fornecedor = fornecedor;
+    }
     
     void operation(){
         

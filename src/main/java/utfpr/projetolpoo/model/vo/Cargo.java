@@ -28,7 +28,12 @@ public class Cargo {
 
     public Cargo() {
     }
-
+    
+    public Cargo(String descricaoCargo, List<Funcionario> funcionarios) {
+        this.descricaoCargo = descricaoCargo;
+        this.funcionarios = funcionarios;
+    }
+    
     public String getDescricaoCargo() {
         return descricaoCargo;
     }

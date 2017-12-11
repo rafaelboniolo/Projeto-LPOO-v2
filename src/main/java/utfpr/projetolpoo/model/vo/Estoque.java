@@ -28,9 +28,13 @@ public class Estoque {
     private List<Fornecedor> fornecedores;
 
     public Estoque() {
-        //fornecedores = new Fornecedor();
     }
-            
+    
+    public Estoque(List<Produto> produtos, List<Fornecedor> fornecedores) {
+        this.produtos = produtos;
+        this.fornecedores = fornecedores;
+    }
+    
     boolean adicionar(Produto p){
         return false;
     }

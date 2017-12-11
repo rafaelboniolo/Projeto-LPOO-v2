@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import java.util.Date;
 import utfpr.projetolpoo.model.vo.interfaces.iPagamento;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -23,9 +24,13 @@ public class Gerente extends Funcionario{
     private iPagamento pagamento;
 
     public Gerente() {
-        //pagamento = new ;
     }
-
+    
+    public Gerente(iPagamento pagamento, double salario, int pis, Gerente gerente, Cargo cargo, String nome, int idade, String tel, String cel, String cpf, String rg, Date nascimento, Endereco endereco) {
+        super(salario, pis, gerente, cargo, nome, idade, tel, cel, cpf, rg, nascimento, endereco);
+        this.pagamento = pagamento;
+    }
+    
     public iPagamento getPagamento() {
         return pagamento;
     }

@@ -52,9 +52,9 @@ public class EnderecoController {
         return enderecos;
     }
     
-    public List listarConformeCampo(String string){
+    /*public List listarConformeCampo(String string){
         List<Endereco> enderecos = genericDao.refresh(Endereco.class, string);
         
         return enderecos;
-    }
+    }*/
 }

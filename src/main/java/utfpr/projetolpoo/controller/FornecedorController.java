@@ -52,9 +52,9 @@ public class FornecedorController {
         return fornecedores;
     }
     
-    public List listarConformeCampo(String string){
+    /*public List listarConformeCampo(String string){
         List<Fornecedor> fornecedores = genericDao.refresh(Fornecedor.class, string);
         
         return fornecedores;
-    }
+    }*/
 }

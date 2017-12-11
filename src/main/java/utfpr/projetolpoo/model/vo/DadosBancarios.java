@@ -41,12 +41,20 @@ public class DadosBancarios {
     
     @OneToOne
     private Funcionario funcionario;
-    
-    public DadosBancarios() {
-        //fornecedor = new Fornecedor();
-        //funcionario = new Funcionario();
-    }
 
+    public DadosBancarios() {
+    }
+    
+    public DadosBancarios(int conta, int agenciaSemDV, int dv, String beneficiario, int op, Fornecedor fornecedor, Funcionario funcionario) {
+        this.conta = conta;
+        this.agenciaSemDV = agenciaSemDV;
+        this.dv = dv;
+        this.beneficiario = beneficiario;
+        this.op = op;
+        this.fornecedor = fornecedor;
+        this.funcionario = funcionario;
+    }
+    
     public int getConta() {
         return conta;
     }

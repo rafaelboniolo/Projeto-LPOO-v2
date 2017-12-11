@@ -16,8 +16,7 @@ import org.hibernate.HibernateException;
  */
 public class HibernateConnection {
     
-    private static EntityManagerFactory factory;    //Gera as Entidades
-    private volatile static EntityManager  manager; //Manipula as Entidades
+    private static EntityManagerFactory factory;
     
     //public static Connection connection = null; // manages connection
  
@@ -25,27 +24,14 @@ public class HibernateConnection {
         
     }
 
-    public static EntityManager getInstance() {
-            if (manager == null) {
-                    synchronized (HibernateConnection.class) {
-                            if (manager == null) {
-                                  
-                                try {
-                                    factory = Persistence.createEntityManagerFactory("ClinicaMedica");
-                                    manager = factory.createEntityManager ();
-                                } catch(HibernateException error)
-                                {
-                                    System.err.println(error.getMessage());
-                                }
-                               
-                            }
-                    }
-            }
-            return manager;
+    public static EntityManager getEntityManager(){
+        if(factory == null || !factory.isOpen()){
+            factory = Persistence.createEntityManagerFactory("ClinicaMedica");
+        } 
+        return factory.createEntityManager();
     }
     
     public static void close(){
-        //manager.close();
         factory.close();
     }
 }

@@ -52,9 +52,9 @@ public class DadosBancariosController {
         return dadosBancs;
     }
     
-    public List listarConformeCampo(String string){
-        List<DadosBancarios> dadosBancs = genericDao.refresh(DadosBancarios.class, string);
+    /*public List listarConformeCampo(String string){
+        List<DadosBancarios> dadosBancs = genericDao.refreshDinamico(DadosBancarios.class, string);
         
         return dadosBancs;
-    }
+    }*/
 }

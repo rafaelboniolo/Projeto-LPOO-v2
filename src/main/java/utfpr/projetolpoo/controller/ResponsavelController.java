@@ -52,9 +52,9 @@ public class ResponsavelController {
         return responsaveis;
     }
     
-    public List listarConformeCampo(String string){
+    /*public List listarConformeCampo(String string){
         List<Responsavel> responsaveis = genericDao.refresh(Responsavel.class, string);
         
         return responsaveis;
-    }
+    }*/
 }

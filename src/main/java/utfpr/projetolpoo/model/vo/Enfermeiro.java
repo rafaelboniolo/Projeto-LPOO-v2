@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -19,9 +20,13 @@ public class Enfermeiro extends Funcionario{
     
     @OneToMany(mappedBy = "enfermeiro")
     private List<Paciente> pacientes;
-        
+
     public Enfermeiro() {
-        
+    }
+    
+    public Enfermeiro(List<Paciente> pacientes, double salario, int pis, Gerente gerente, Cargo cargo, String nome, int idade, String tel, String cel, String cpf, String rg, Date nascimento, Endereco endereco) {
+        super(salario, pis, gerente, cargo, nome, idade, tel, cel, cpf, rg, nascimento, endereco);
+        this.pacientes = pacientes;
     }
     
     public List<Paciente> getPacientes() {

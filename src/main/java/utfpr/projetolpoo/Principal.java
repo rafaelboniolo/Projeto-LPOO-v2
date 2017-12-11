@@ -24,8 +24,6 @@ public class Principal {
         
         SistemaController sistema = new SistemaController();
         
-        sistema.start();
-        
         EnfermeiroController enfermeiroEnf = new EnfermeiroController();
         
         Enfermeiro enf = new Enfermeiro();

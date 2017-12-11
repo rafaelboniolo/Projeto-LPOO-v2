@@ -52,9 +52,9 @@ public class EstoqueController {
         return estoques;
     }
     
-    public List listarConformeCampo(String string){
+    /*public List listarConformeCampo(String string){
         List<Estoque> estoques = genericDao.refresh(Estoque.class, string);
         
         return estoques;
-    }
+    }*/
 }

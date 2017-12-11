@@ -13,9 +13,6 @@ import utfpr.projetolpoo.model.dao.HibernateConnection;
  * @author ALUNO
  */
 public class SistemaController {
-    public void start(){
-        EntityManager manager = HibernateConnection.getInstance();
-    }
     
     public void end(){
         HibernateConnection.close();

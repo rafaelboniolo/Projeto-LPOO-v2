@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import java.util.Date;
 import javax.persistence.Column;
 import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 import javax.persistence.Entity;
@@ -28,8 +29,13 @@ public class Paciente extends Pessoa{
     private Enfermeiro enfermeiro;
 
     public Paciente() {
-        responsavel = new Responsavel();
-        enfermeiro = new Enfermeiro();
+    }
+    
+    public Paciente(String laudo, Responsavel responsavel, Enfermeiro enfermeiro, String nome, int idade, String tel, String cel, String cpf, String rg, Date nascimento, Endereco endereco) {
+        super(nome, idade, tel, cel, cpf, rg, nascimento, endereco);
+        this.laudo = laudo;
+        this.responsavel = responsavel;
+        this.enfermeiro = enfermeiro;
     }
 
     public String getLaudo() {

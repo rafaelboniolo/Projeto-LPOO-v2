@@ -24,12 +24,11 @@ public class Endereco {
     private String uf;
     private String rua;
     private String n = "";
-    
+
     public Endereco() {
     }
-
-    public Endereco(long codEndereco, String cep, String cidade, String uf, String rua) {
-        this.codEndereco = codEndereco;
+    
+    public Endereco(String cep, String cidade, String uf, String rua) {
         this.cep = cep;
         this.cidade = cidade;
         this.uf = uf;

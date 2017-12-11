@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import java.util.Date;
 import javax.persistence.Column;
 import utfpr.projetolpoo.model.vo.abstrato.Pessoa;
 import javax.persistence.Entity;
@@ -32,11 +33,16 @@ public class Funcionario extends Pessoa{
     //@Column(nullable=false, unique=true)
     @ManyToOne
     private Cargo cargo;
-    
+
     public Funcionario() {
-        //endereco = new Endereco();
-        //gerente = new Gerente();
-        //cargo = new Cargo();
+    }
+    
+    public Funcionario(double salario, int pis, Gerente gerente, Cargo cargo, String nome, int idade, String tel, String cel, String cpf, String rg, Date nascimento, Endereco endereco) {
+        super(nome, idade, tel, cel, cpf, rg, nascimento, endereco);
+        this.salario = salario;
+        this.pis = pis;
+        this.gerente = gerente;
+        this.cargo = cargo;
     }
     
     public double getSalario() {

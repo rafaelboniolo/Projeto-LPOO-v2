@@ -18,6 +18,5 @@ public interface iGenericDAO<E> {
     Boolean remove(E object);
     List<E> listAll(Class object);
     List<E> listAll(Class object, final Long first,final Long max);
-    List<E> refresh(Class object, String string);
     E findOne(Long id, Class object);
 }
