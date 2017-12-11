@@ -510,6 +510,21 @@ public class PacienteView extends javax.swing.JInternalFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         
+        Paciente p = new Paciente();
+        
+        p.setNome(this.tfNome.getText());
+        p.setCel("0");
+        p.setCpf(this.tfCPF.getText());
+        p.setIdade(this.dateNasc.getDate().getYear());
+        p.setLaudo(this.taLaudo.getText());
+        p.setNascimento(this.dateNasc.getDate());
+        p.setRg(this.tfRG.getText());
+        p.setTel("0");
+        p.setEndereco(null);
+        p.setResponsavel(null);
+        
+        new PacienteController().gravar(p);
+        
         new PacienteController().gravar(new Paciente());
         
        
