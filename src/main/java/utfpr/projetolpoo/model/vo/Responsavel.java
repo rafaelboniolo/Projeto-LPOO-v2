@@ -16,6 +16,5 @@ import javax.persistence.Entity;
 public class Responsavel extends Pessoa{
 
     public Responsavel() {
-        super(null, 0, null, null, null, null, null, null);
     }
 }

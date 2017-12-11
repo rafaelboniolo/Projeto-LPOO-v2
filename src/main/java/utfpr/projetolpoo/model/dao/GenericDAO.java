@@ -28,7 +28,7 @@ public class GenericDAO<E> implements iGenericDAO<E>{
         manager.getTransaction().begin();
             manager.persist(object);
         manager.getTransaction().commit();
-        System.out.println(object.getClass().getSimpleName() + " salvo som sucesso!");
+        System.out.println(object.getClass().getSimpleName() + " salvo com sucesso!");
         manager.close();
         return true;
     }

@@ -26,7 +26,7 @@ public class HibernateConnection {
 
     public static EntityManager getEntityManager(){
         if(factory == null || !factory.isOpen()){
-            factory = Persistence.createEntityManagerFactory("ClinicaMedica");
+            factory = Persistence.createEntityManagerFactory("clinicamedica");
         } 
         return factory.createEntityManager();
     }

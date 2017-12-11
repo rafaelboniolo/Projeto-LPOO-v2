@@ -21,8 +21,8 @@ public class PacienteController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Paciente paciente) {
-        genericDao.insert(paciente);
+    public boolean gravar(Paciente paciente) {
+        return genericDao.insert(paciente);
     }
     
     public void remover (Paciente paciente) {
