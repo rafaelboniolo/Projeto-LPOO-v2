@@ -5,6 +5,8 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,10 +38,10 @@ public class DadosBancarios {
     //@Column(nullable=false)
     private int op;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Fornecedor fornecedor;
     
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Funcionario funcionario;
 
     public DadosBancarios() {

@@ -6,12 +6,10 @@
 package utfpr.projetolpoo.view.funcionario;
 
 import java.awt.Color;
-import utfpr.projetolpoo.Bean.BeanEndereco;
-import utfpr.projetolpoo.Bean.BeanPaciente;
-import utfpr.projetolpoo.Bean.BeanResponsavel;
 import utfpr.projetolpoo.view.paciente.BuscarPacienteView;
 import javax.swing.JDesktopPane;
 import javax.swing.JFormattedTextField;
+import utfpr.projetolpoo.model.vo.Paciente;
 /**
  *
  * @author Boniolo
@@ -440,28 +438,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        BeanPaciente bp = new BeanPaciente();
-        bp.setNome(this.tfNome.getText());
-        bp.setCpf(this.tfCPF.getText());
-        bp.setRg(this.tfRG.getText());
-        bp.setNascimento(this.dateNasc.getDate());
         
-        BeanEndereco end = new BeanEndereco();
-        end.setCep(this.tfCep.getText());
-        end.setCidade(this.tfCidade.getText());
-        if(this.cbN.isSelected())
-            end.setN(null);
-        else
-            end.setN(this.tfN.getText());
-        end.setRua(this.tfRua.getText());
-        end.setUf(this.tfUF.getText());
-        
-        bp.setEndereco(end);
-        
-        // salvar bp.
-        
-        this.limparCampos();
-        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed

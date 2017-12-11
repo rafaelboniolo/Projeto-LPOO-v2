@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.model.vo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,10 +25,10 @@ public class Produto {
     private String descricao;
     private double valor;
     
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Estoque estoque;
     
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Fornecedor fornecedor;
 
     public Produto() {

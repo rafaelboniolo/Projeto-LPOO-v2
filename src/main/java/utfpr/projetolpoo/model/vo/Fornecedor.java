@@ -7,6 +7,7 @@ package utfpr.projetolpoo.model.vo;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -25,7 +26,7 @@ public class Fornecedor extends Pessoa{
     private Estoque estoque;
     
     //@Column(nullable=false, unique=true)
-    @OneToOne(mappedBy = "fornecedor")
+    @OneToOne(mappedBy = "fornecedor", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private DadosBancarios dadosBancarios;
     
     //@Column(nullable=false, unique=true)

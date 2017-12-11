@@ -5,9 +5,6 @@
  */
 package utfpr.projetolpoo.view.responsavel;
 
-import utfpr.projetolpoo.Bean.BeanEndereco;
-import utfpr.projetolpoo.Bean.BeanResponsavel;
-
 /**
  *
  * @author ALUNO
@@ -426,30 +423,7 @@ public class ResponsavelView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        BeanResponsavel br = new BeanResponsavel();
-        br.setNome(this.tfNome.getText());
-        br.setCpf(this.tfCPF.getText());
-        br.setCel(this.tfCel.getText());
-        br.setRg(this.tfRG.getText());
-        br.setNascimento(this.dateNasc.getDate());
-        br.setTel(this.tfTel.getText());
         
-        BeanEndereco end = new BeanEndereco();
-        end.setCep(this.tfCep.getText());
-        end.setCidade(this.tfCidade.getText());
-        if(this.cbN.isSelected())
-            end.setN(null);
-        else
-            end.setN(this.tfN.getText());
-        end.setRua(this.tfRua.getText());
-        end.setUf(this.tfUF.getText());
-        
-        br.setEndereco(end);
-        
-        // salvar br
-        
-        this.limparCampos();
-        this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
     private void limparCampos(){
