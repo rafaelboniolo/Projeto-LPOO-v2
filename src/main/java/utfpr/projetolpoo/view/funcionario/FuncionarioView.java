@@ -10,6 +10,7 @@ import utfpr.projetolpoo.view.paciente.BuscarPacienteView;
 import javax.swing.JDesktopPane;
 import javax.swing.JFormattedTextField;
 import utfpr.projetolpoo.model.vo.Paciente;
+import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
 /**
  *
  * @author Boniolo

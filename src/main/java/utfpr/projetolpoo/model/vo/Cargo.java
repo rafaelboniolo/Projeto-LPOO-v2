@@ -21,7 +21,6 @@ public class Cargo {
     @Id
     @GeneratedValue
     private int codCargo;
-    
     //@Column(nullable=false)
     private String descricaoCargo;
     

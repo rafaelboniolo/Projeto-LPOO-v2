@@ -170,6 +170,12 @@ public class PacienteView extends javax.swing.JInternalFrame {
 
         jLabel7.setText("CPF:");
 
+        tfResponsavel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfResponsavelActionPerformed(evt);
+            }
+        });
+
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/users.png"))); // NOI18N
         jButton2.setText("Vincular");
 
@@ -508,23 +514,30 @@ public class PacienteView extends javax.swing.JInternalFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         
         Paciente p = new Paciente();
+        Endereco e = new Endereco();
+        Responsavel r = new Responsavel();
         
         p.setNome(this.tfNome.getText());
         p.setCel("0");
         p.setCpf(this.tfCPF.getText());
-        p.setIdade(this.dateNasc.getDate().getYear());
+        p.setIdade(0);
         p.setLaudo(this.taLaudo.getText());
         p.setNascimento(this.dateNasc.getDate());
         p.setRg(this.tfRG.getText());
         p.setTel("0");
-        p.setEndereco(null);
-        p.setResponsavel(null);
+        
+        e.setCep(this.tfCep.getText());
+        e.setCidade(this.tfCidade.getText());
+        e.setN(this.tfN.getText());
+        e.setRua(this.tfRua.getText());
+        e.setUf(this.tfUF.getText());
+        
+        
+        p.setEndereco(e);
+        p.setResponsavel(r);
         
         new PacienteController().gravar(p);
         
-        new PacienteController().gravar(new Paciente());
-        
-       
         this.limparCampos();
         this.dispose();
     }//GEN-LAST:event_btSalvarActionPerformed
@@ -534,6 +547,10 @@ public class PacienteView extends javax.swing.JInternalFrame {
         desktopPane.add(bp);
         bp.setVisible(true);
     }//GEN-LAST:event_btBuscarActionPerformed
+
+    private void tfResponsavelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfResponsavelActionPerformed
+        
+    }//GEN-LAST:event_tfResponsavelActionPerformed
     
     private void limparCampos(){
         this.tfCPF.setText(null);
