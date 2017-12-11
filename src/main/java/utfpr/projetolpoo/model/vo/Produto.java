@@ -24,9 +24,7 @@ public class Produto {
     private long codigo;
     private String descricao;
     private double valor;
-    
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Estoque estoque;
+    private String nome;
     
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Fornecedor fornecedor;
@@ -34,11 +32,10 @@ public class Produto {
     public Produto() {
     }
     
-    public Produto(long codigo, String descricao, double valor, Estoque estoque, Fornecedor fornecedor) {
+    public Produto(long codigo, String descricao, double valor, Fornecedor fornecedor) {
         this.codigo = codigo;
         this.descricao = descricao;
         this.valor = valor;
-        this.estoque = estoque;
         this.fornecedor = fornecedor;
     }
     
@@ -70,14 +67,6 @@ public class Produto {
         this.valor = valor;
     }
 
-    public Estoque getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
-    }
-
     public Fornecedor getFornecedor() {
         return fornecedor;
     }
@@ -85,4 +74,12 @@ public class Produto {
     public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
     }   
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

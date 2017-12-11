@@ -21,8 +21,8 @@ public class ProdutoController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Produto produto) {
-        genericDao.insert(produto);
+    public boolean gravar(Produto produto) {
+        return genericDao.insert(produto);
     }
     
     public void remover (Produto produto) {
