@@ -21,16 +21,16 @@ public class EnfermeiroController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Enfermeiro enf) {
-        genericDao.insert(enf);
+    public boolean gravar(Enfermeiro enf) {
+        return genericDao.insert(enf);
     }
     
-    public void remover (Enfermeiro enf) {
-        genericDao.remove(enf);
+    public boolean remover (Enfermeiro enf) {
+        return genericDao.remove(enf);
     }
     
-    public void atualizar(Enfermeiro enf){
-        genericDao.update(enf);
+    public boolean atualizar(Enfermeiro enf){
+        return genericDao.update(enf);
     }
     
     public List buscarTodos()
@@ -52,9 +52,9 @@ public class EnfermeiroController {
         return enfermeiro;
     }
     
-    /*public List listarConformeCampo(String string){
-        List<Enfermeiro> enfermeiros = genericDao.refresh(Enfermeiro.class, string);
+    public List listarConformeCampo(String atriNome, String atriCPF, String valorNome, String valorCPF){
+        List<Enfermeiro> enfermeiros = genericDao.refreshDinamico(Enfermeiro.class, atriNome, atriCPF, valorNome, valorCPF);
         
         return enfermeiros;
-    }*/
+    }
 }

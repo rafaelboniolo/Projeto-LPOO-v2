@@ -5,7 +5,6 @@
  */
 package utfpr.projetolpoo.model.vo;
 
-import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;

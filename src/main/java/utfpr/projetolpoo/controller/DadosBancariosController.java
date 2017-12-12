@@ -21,16 +21,16 @@ public class DadosBancariosController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(DadosBancarios dado) {
-        genericDao.insert(dado);
+    public boolean gravar(DadosBancarios dado) {
+        return genericDao.insert(dado);
     }
     
-    public void remover (DadosBancarios dado) {
-        genericDao.remove(dado);
+    public boolean remover (DadosBancarios dado) {
+        return genericDao.remove(dado);
     }
     
-    public void atualizar(DadosBancarios dado){
-        genericDao.update(dado);
+    public boolean atualizar(DadosBancarios dado){
+        return genericDao.update(dado);
     }
     
     public List buscarTodos()

@@ -21,16 +21,16 @@ public class EnderecoController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Endereco end) {
-        genericDao.insert(end);
+    public boolean gravar(Endereco end) {
+        return genericDao.insert(end);
     }
     
-    public void remover (Endereco end) {
-        genericDao.remove(end);
+    public boolean remover (Endereco end) {
+        return genericDao.remove(end);
     }
     
-    public void atualizar(Endereco end){
-        genericDao.update(end);
+    public boolean atualizar(Endereco end){
+        return genericDao.update(end);
     }
     
     public List buscarTodos()

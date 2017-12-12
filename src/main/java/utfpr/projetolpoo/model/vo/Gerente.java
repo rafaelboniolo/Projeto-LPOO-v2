@@ -5,7 +5,6 @@
  */
 package utfpr.projetolpoo.model.vo;
 
-import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
 import java.util.Date;
 import utfpr.projetolpoo.model.vo.interfaces.iPagamento;
 import javax.persistence.Entity;

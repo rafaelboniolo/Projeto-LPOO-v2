@@ -7,7 +7,7 @@ package utfpr.projetolpoo.controller;
 
 import java.util.List;
 import utfpr.projetolpoo.model.dao.GenericDAO;
-import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
+import utfpr.projetolpoo.model.vo.Funcionario;
 
 /**
  *
@@ -21,16 +21,16 @@ public class FuncionarioController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Funcionario func) {
-        genericDao.insert(func);
+    public boolean gravar(Funcionario func) {
+        return genericDao.insert(func);
     }
     
-    public void remover (Funcionario func) {
-        genericDao.remove(func);
+    public boolean remover (Funcionario func) {
+        return genericDao.remove(func);
     }
     
-    public void atualizar(Funcionario func){
-        genericDao.update(func);
+    public boolean atualizar(Funcionario func){
+        return genericDao.update(func);
     }
     
     public List buscarTodos()
@@ -52,9 +52,9 @@ public class FuncionarioController {
         return funcionarios;
     }
     
-    /*public List listarConformeCampo(String string){
-        List<Funcionario> funcionarios = genericDao.refresh(Funcionario.class, string);
+    public List listarConformeCampo(String atriNome, String atriCPF, String valorNome, String valorCPF){
+        List<Funcionario> funcionarios = genericDao.refreshDinamico(Funcionario.class, atriNome, atriCPF, valorNome, valorCPF);
         
         return funcionarios;
-    }*/
+    }
 }

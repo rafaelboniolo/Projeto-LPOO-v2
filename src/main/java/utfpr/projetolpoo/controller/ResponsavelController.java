@@ -21,16 +21,16 @@ public class ResponsavelController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Responsavel responsavel) {
-        genericDao.insert(responsavel);
+    public boolean gravar(Responsavel responsavel) {
+        return genericDao.insert(responsavel);
     }
     
-    public void remover (Responsavel responsavel) {
-        genericDao.remove(responsavel);
+    public boolean remover (Responsavel responsavel) {
+        return genericDao.remove(responsavel);
     }
     
-    public void atualizar(Responsavel responsavel){
-        genericDao.update(responsavel);
+    public boolean atualizar(Responsavel responsavel){
+        return genericDao.update(responsavel);
     }
     
     public List buscarTodos()
@@ -52,7 +52,7 @@ public class ResponsavelController {
         return responsaveis;
     }
     
-    public List listarConformeCampo(Class object, String atriNome, String atriCPF, String valorNome, String valorCPF){
+    public List listarConformeCampo(String atriNome, String atriCPF, String valorNome, String valorCPF){
         List<Responsavel> responsaveis = genericDao.refreshDinamico(Responsavel.class, atriNome, atriCPF, valorNome, valorCPF);
         
         return responsaveis;

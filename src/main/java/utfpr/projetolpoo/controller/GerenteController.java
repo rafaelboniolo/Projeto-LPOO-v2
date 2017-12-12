@@ -21,16 +21,16 @@ public class GerenteController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Gerente gerente) {
-        genericDao.insert(gerente);
+    public boolean gravar(Gerente gerente) {
+        return genericDao.insert(gerente);
     }
     
-    public void remover (Gerente gerente) {
-        genericDao.remove(gerente);
+    public boolean remover (Gerente gerente) {
+        return genericDao.remove(gerente);
     }
     
-    public void atualizar(Gerente gerente){
-        genericDao.update(gerente);
+    public boolean atualizar(Gerente gerente){
+        return genericDao.update(gerente);
     }
     
     public List buscarTodos()

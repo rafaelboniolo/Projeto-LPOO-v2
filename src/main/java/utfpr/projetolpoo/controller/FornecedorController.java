@@ -21,16 +21,16 @@ public class FornecedorController {
         genericDao = new GenericDAO<>();
     }
     
-    public void gravar(Fornecedor fornecedor) {
-        genericDao.insert(fornecedor);
+    public boolean gravar(Fornecedor fornecedor) {
+        return genericDao.insert(fornecedor);
     }
     
-    public void remover (Fornecedor fornecedor) {
-        genericDao.remove(fornecedor);
+    public boolean remover (Fornecedor fornecedor) {
+        return genericDao.remove(fornecedor);
     }
     
-    public void atualizar(Fornecedor fornecedor){
-        genericDao.update(fornecedor);
+    public boolean atualizar(Fornecedor fornecedor){
+        return genericDao.update(fornecedor);
     }
     
     public List buscarTodos()
@@ -51,10 +51,4 @@ public class FornecedorController {
         
         return fornecedores;
     }
-    
-    /*public List listarConformeCampo(String string){
-        List<Fornecedor> fornecedores = genericDao.refresh(Fornecedor.class, string);
-        
-        return fornecedores;
-    }*/
 }
