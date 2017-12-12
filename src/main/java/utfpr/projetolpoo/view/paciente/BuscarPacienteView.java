@@ -5,6 +5,11 @@
  */
 package utfpr.projetolpoo.view.paciente;
 
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+import utfpr.projetolpoo.controller.PacienteController;
+import utfpr.projetolpoo.model.vo.Paciente;
+
 /**
  *
  * @author ALUNO
@@ -14,10 +19,16 @@ public class BuscarPacienteView extends javax.swing.JInternalFrame {
     /**
      * Creates new form BuscarPaciente
      */
+    DefaultTableModel modeloTabela;
+    
     public BuscarPacienteView() {
         this.setResizable(false);
         initComponents();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.modeloTabela = new DefaultTableModel(null, 
+                new String[]{"Nome","CPF","Idade","Responsável"});
+        jTable1.setModel(modeloTabela);
+        this.updateTable();
     }
 
     /**
@@ -183,7 +194,14 @@ public class BuscarPacienteView extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    private void updateTable(){
+        new PacienteController().buscarTodos().forEach((a)->{
+            Paciente p = new Paciente();
+            p = (Paciente) a;
+            this.modeloTabela.addRow(new Object[]{p.getNome(),p.getCpf(),p.getIdade(),p.getResponsavel().getNome()});
+        });
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;

@@ -5,6 +5,7 @@
  */
 package utfpr.projetolpoo.view.loginInicio;
 
+import java.sql.Date;
 import utfpr.projetolpoo.view.report.ReportView;
 import utfpr.projetolpoo.view.paciente.PacienteView;
 import utfpr.projetolpoo.view.usuario.UsuarioView;
@@ -14,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import utfpr.projetolpoo.Hour;
+import utfpr.projetolpoo.controller.LembretesController;
 import utfpr.projetolpoo.view.lembrete.LembretesView;
 
 
@@ -27,9 +29,10 @@ public class InicioView extends javax.swing.JFrame {
      * Creates new form InicioView
      */
     boolean STATUS_MESSAGE = true;
-    String t = "Boniolo" ;
     
-    public InicioView() {
+    
+    
+    public InicioView(String login) {
         setResizable(false);
         initComponents();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -37,7 +40,7 @@ public class InicioView extends javax.swing.JFrame {
         this.setVisible(true);
         new Hour().initHour(this.Hora);
         lembrete(this.imgMessage,this.STATUS_MESSAGE);
-        this.showUser(t);
+        this.showUser(login);
         this.setLocationRelativeTo(null);
         
     }
@@ -64,10 +67,12 @@ public class InicioView extends javax.swing.JFrame {
             }
             
         });
-        if(status)
+        if(true)
             t.start();
         else
             t.notify();
+        
+        //System.out.println(new LembretesController().alarme(Date.valueOf("2017-10-01 01:47:46.0")));
     }
     
     private void showUser(String t){
@@ -698,39 +703,7 @@ public class InicioView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-      try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-         
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                
-                new InicioView().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Hora;

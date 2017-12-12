@@ -187,7 +187,7 @@ public class LoginView extends javax.swing.JFrame {
         this.initBar(jProgressBar1, true);
         this.initBar(this.jProgressBar1,this.TEMP_initHibernate());
         this.dispose();
-        new InicioView().setVisible(true);
+        new InicioView(this.tfLogin.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

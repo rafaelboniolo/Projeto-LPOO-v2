@@ -5,6 +5,11 @@
  */
 package utfpr.projetolpoo.view.lembrete;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import utfpr.projetolpoo.controller.LembretesController;
+import utfpr.projetolpoo.model.vo.Lembretes;
+
 /**
  *
  * @author User
@@ -14,12 +19,17 @@ public class LembretesView extends javax.swing.JFrame {
     /**
      * Creates new form Lembretes
      */
+    DefaultTableModel modeloTabela;
+    
+    
     public LembretesView() {
         this.setResizable(false);
         initComponents();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
-
+        this.modeloTabela = new DefaultTableModel(null, new String[]{"Data","Titulo"});
+        this.jTable1.setModel(modeloTabela);
+        this.updateTable();
     }
 
     /**
@@ -135,6 +145,12 @@ public class LembretesView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setCellSelectionEnabled(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jTextArea1.setColumns(20);
@@ -200,16 +216,43 @@ public class LembretesView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-
-        this.tfTitulo.setText(null);
-        this.jDateChooser1.setDate(null);
-        this.jTextArea2.setText(null);
+        
+        boolean flag = new LembretesController().gravar(
+                new Lembretes(this.jDateChooser1.getDate(),
+                        this.jTextArea2,this.tfTitulo));
+        if(flag){
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+            this.tfTitulo.setText(null);
+            this.jDateChooser1.setDate(null);
+            this.jTextArea2.setText(null);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Erro inesperado");
+            this.dispose();
+        }
+        this.updateTable();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        System.out.println(this.modeloTabela.getValueAt(0, 0).toString());
+             
+        //this.jTextArea1.setText(l.getLembrete());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void updateTable(){
+        this.modeloTabela.setNumRows(0);
+        new LembretesController().buscar().forEach((a)->{
+            Lembretes l = new Lembretes();
+            l = (Lembretes) a;
+            this.modeloTabela.addRow(new Object[]{String.valueOf(l.getData())
+            ,l.getTitulo()});
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */

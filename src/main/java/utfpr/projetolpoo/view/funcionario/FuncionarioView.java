@@ -9,8 +9,11 @@ import java.awt.Color;
 import utfpr.projetolpoo.view.paciente.BuscarPacienteView;
 import javax.swing.JDesktopPane;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import utfpr.projetolpoo.controller.FuncionarioController;
 import utfpr.projetolpoo.model.vo.Paciente;
-import utfpr.projetolpoo.model.vo.abstrato.Funcionario;
+import utfpr.projetolpoo.model.vo.Funcionario;
 /**
  *
  * @author Boniolo
@@ -21,12 +24,12 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
      * Creates new form Paciente
      */
     JDesktopPane desktopPane;
+    
     public FuncionarioView(JDesktopPane desktopPane) {
         this.setResizable(false);
         initComponents();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        this.desktopPane = desktopPane;
-        
+        this.desktopPane = desktopPane;     
     }
 
     /**
@@ -439,7 +442,24 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Funcionario f = new Funcionario();
+        f.setCargo(null);
+        f.setCel(null);
+        f.setCpf(this.tfCPF.getText());
+        f.setEndereco(null);
+        f.setGerente(null);
+        f.setIdade(this.dateNasc.getDate().getYear());
+        f.setNascimento(this.dateNasc.getDate());
+        f.setNome(this.tfNome.getText());
+        f.setPis(Integer.valueOf(this.tfPis.getText()));
+        f.setRg(this.tfRG.getText());
+        f.setSalario(Double.valueOf(this.tfSalario.getText()));
+        f.setTel(null);
         
+        if(new FuncionarioController().gravar(f))
+            this.limparCampos();
+        else
+            JOptionPane.showMessageDialog(null, "Erro na inserção, tente novamente");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed

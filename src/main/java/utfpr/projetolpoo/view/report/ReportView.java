@@ -8,6 +8,8 @@ package utfpr.projetolpoo.view.report;
 
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import utfpr.projetolpoo.controller.ReportController;
+import utfpr.projetolpoo.model.vo.Report;
 
 /**
  *
@@ -143,8 +145,12 @@ public class ReportView extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(this,"Envio invalido");
      else{
         
-        //## controle.gravarErros()
-        JOptionPane.showMessageDialog(this, "Agradecemos seu relato, trabalharemos nisso!");
+        boolean flag = new ReportController().gravar(new Report(this.tfSetor,
+                this.jScrollPane1, this.jTextArea1));
+        if(flag)
+            JOptionPane.showMessageDialog(null, "Agradecemos seu relato, trabalharemos nisso!");
+        else
+            JOptionPane.showMessageDialog(null,"Algo deu errado...");
         this.dispose();
      }
     }//GEN-LAST:event_btEnviarActionPerformed
